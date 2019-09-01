@@ -1,0 +1,41 @@
+country = 'CANADA'
+orderTotal = float(input("How much did you spend? "))
+country = input("Which is your country of origin? ").upper()
+
+amountSpent = float(orderTotal)
+
+if country == 'CANADA':
+    province = input("Which province are you from? ").upper()
+
+    if province == 'ALBERTA':
+        tax = 0.05
+    elif province == 'ONTARIO':
+        tax = 0.13
+    elif province == 'NEW_BRUNSWICK':
+        tax = 0.13
+    elif province == 'NOVA_SCOTIA':
+        tax = 0.13
+    else:
+        PST = 0.06
+        GST = 0.05
+        total_tax = PST + GST
+        tax = total_tax
+else:
+    if country != 'CANADA':
+        tax = 0
+
+# print receipt
+if country == 'CANADA':
+    taxesCharged = amountSpent * tax
+    totalSpent= amountSpent - taxesCharged
+    totalConsumption = amountSpent + taxesCharged
+    print("You spent " + str(amountSpent))
+    print("Your total consumption is " + str(totalConsumption), "Taxes charged are " + str(taxesCharged))
+
+elif country != 'CANADA':
+        print("You were exempted taxes. You'll only pay " + str(orderTotal))
+
+print("Thank you for shopping with us. Have a great day")
+
+
+
